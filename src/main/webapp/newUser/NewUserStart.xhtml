@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	
+<html lang="it" 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://java.sun.com/jsf/passthrough"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h:body>
+		<ui:composition template="/templates/1_0Layout.xhtml">
+			<ui:define name="metadata">
+				<f:metadata>
+					<f:viewAction action="#{insertUser.startConversation()}"/>
+				</f:metadata>
+			</ui:define>
+			<ui:define name="content">
+			
+				<div>
+					<h:form>
+						<div>
+							<h:inputText id="username" value="#{insertUser.tempUsername}" />
+						</div>
+						
+						<div>
+							<h:commandButton value="Upload" action="#{insertUser.checkUsername()}" />
+						</div>
+					
+					
+					</h:form>
+					<div>
+						<h:messages />
+					</div>
+				</div>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>
