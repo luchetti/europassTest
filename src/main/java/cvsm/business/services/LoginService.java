@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import cvsm.model.entities.LoginEntity;
-import cvsm.model.entities.UserEntity;
 
 @Named
 @Stateless
@@ -25,8 +24,8 @@ public class LoginService {
 		 return em.find(LoginEntity.class, username);
 	}
 	
-	public void save(UserEntity user){
-		em.merge(user);
+	public void save(LoginEntity login){
+		em.merge(login);
 	}
 	
 	public boolean isUserAvaiable (String username){
