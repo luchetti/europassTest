@@ -4,12 +4,14 @@ import java.util.logging.Logger;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import cvsm.model.entities.LoginEntity;
 import cvsm.model.entities.UserEntity;
 
+@Named
 @Stateless
 public class LoginService {
 

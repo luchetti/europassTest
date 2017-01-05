@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import cvsm.business.services.LoginService;
+import cvsm.business.services.UserService;
 import cvsm.model.entities.LoginEntity;
 import cvsm.model.entities.UserEntity;
 
@@ -25,6 +26,7 @@ public class InsertUser implements Serializable{
 	@Inject private Conversation conversation;
 	@Inject Logger log;
 	@Inject LoginService loginService;
+	@Inject UserService userService;
 	
 	private UserEntity newUser;
 	private LoginEntity newLogin;
@@ -38,16 +40,42 @@ public class InsertUser implements Serializable{
 	
 	// STEP 1: Controllo dell'username
 	public String checkUsername(){
-		if ( ! loginService.isUserAvaiable(tempUsername)){
+		if ( loginService.find(tempUsername) == null){
 			
 			newLogin=new LoginEntity();
 			newUser=new UserEntity();
 			
 			newLogin.setUsername(tempUsername);
 			newUser.setUsername(tempUsername);
-			
+			return "NewUserPopulate.xhtml";
 		}
-		return "";
+		return null;
+	}
+	
+	// STEP 2: Dati popolati
+	public String populateUser(){
+		if(newLogin.getPassword()!=null && newUser.getName()!=null && newUser.getSurname()!=null){
+			return "NewUserConfirmation.xhtml";
+		}
+		else{
+			return null;
+		}
+	}
+	
+	//STEP 3: Conferma e salva
+	public String confirmAndClose(){
+		try{
+			loginService.save(newLogin);
+			userService.save(newUser);
+			log.info("Utente "+newUser.getUsername()+" creato correttamente");
+			endConversation();
+			return "home.xhtml?faces-redirect=true";
+		}
+		catch(Exception ex){
+			log.info("Errore nella creazione dell'Utente");
+			endConversation();
+			return null;
+		}
 	}
 	public Conversation getConversation() { return conversation; }
 	public void setConversation(Conversation conversation) { this.conversation = conversation; }
