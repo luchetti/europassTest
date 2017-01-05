@@ -1,6 +1,7 @@
 package cvsm.business.beans;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -11,6 +12,8 @@ import javax.inject.Named;
 import cvsm.business.beans.utl.Credentials;
 import cvsm.business.customQualifiers.LoggedIn;
 import cvsm.business.services.LoginService;
+import cvsm.business.services.UserService;
+import cvsm.model.entities.LoginEntity;
 import cvsm.model.entities.UserEntity;
 
 @Named
@@ -19,10 +22,10 @@ public class Login implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Inject
-	private Credentials credentials;
-	@Inject
-	private LoginService loginService;
+	@Inject Logger log;
+	@Inject Credentials credentials;
+	@Inject LoginService loginService;
+	@Inject UserService userService;
 	
 	private UserEntity user;
 	
@@ -32,14 +35,18 @@ public class Login implements Serializable{
 	}
 	
 	public String doLogin(){
+		log.info("Ricerca per username: "+credentials.getUsername());
+		LoginEntity login= new LoginEntity();
+		login=loginService.find(credentials.getUsername());
 		
-		int userId=loginService.findUserId(credentials.getUsername(), credentials.getPassword());
-		
-		if(userId!=0){
-			user=loginService.getUser(userId);
+		if((login!=null) && (login.getPassword().equals(credentials.getPassword()))){
+			log.info("Utente trovato!");
+			user=userService.find(login.getUsername());
+			log.info("User trovato con login: "+credentials.getUsername());
 			return "home?faces-redirect=true";
 		}
 		else{
+			log.info("User non trovato");
 			return "index?faces-redirect=true";
 		}
 	}
