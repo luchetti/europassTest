@@ -3,25 +3,21 @@ package cvsm.model.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries(
-	@NamedQuery(name = "user.getUserById", query = "SELECT u FROM UserEntity u WHERE u.username = :username")
-)
+
 @Table(name="TBL_USER")
 public class UserEntity {
 
 	@Id
-	@Column(name="USERNAME")
+	@Column(name="USER_USERNAME")
 	private String username;
 	
-	@Column(name="NAME")
+	@Column(name="USER_NAME")
 	private String name;
 	
-	@Column(name="SURNAME")
+	@Column(name="USER_SURNAME")
 	private String surname;
 
 	public String getUsername() {
