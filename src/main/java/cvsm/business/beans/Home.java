@@ -13,9 +13,7 @@ import cvsm.model.entities.UserEntity;
 @SessionScoped
 public class Home implements Serializable {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	@Inject @LoggedIn private transient UserEntity currentUser;
