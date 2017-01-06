@@ -12,7 +12,6 @@ import javax.persistence.Table;
 public class LoginEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column (name ="LOGIN_USER")
 	private String username;
 	

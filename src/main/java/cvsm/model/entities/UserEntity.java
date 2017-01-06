@@ -2,6 +2,7 @@ package cvsm.model.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 public class UserEntity {
 
 	@Id
+	@GeneratedValue
 	@Column(name="USER_USERNAME")
 	private String username;
 	

@@ -21,7 +21,8 @@ public class LoginService {
 	Logger log;
 	
 	public LoginEntity find(String username){
-		 return em.find(LoginEntity.class, username);
+		try{ return em.find(LoginEntity.class, username); }
+		catch(Exception ex){ return null; }
 	}
 	
 	public void save(LoginEntity login){

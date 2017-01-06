@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import cvsm.model.entities.LoginEntity;
 import cvsm.model.entities.UserEntity;
 
 @Stateless
@@ -19,7 +20,8 @@ public class UserService {
 	Logger log;
 	
 	public UserEntity find(String username){
-		 return em.find(UserEntity.class, username);
+		try{ return em.find(UserEntity.class, username); }
+		catch(Exception ex){ return null; }
 	}
 	public void save(UserEntity user){
 		em.merge(user);

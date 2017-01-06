@@ -45,6 +45,7 @@ public class Login implements Serializable{
 			log.info("Utente trovato!");
 			user=userService.find(login.getUsername());
 			log.info("User trovato con login: "+user.getUsername());
+			
 			return "home?faces-redirect=true";
 		}
 		else{
