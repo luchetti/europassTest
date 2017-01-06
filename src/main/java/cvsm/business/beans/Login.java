@@ -18,16 +18,18 @@ import cvsm.model.entities.UserEntity;
 
 @Named
 @SessionScoped
+
 public class Login implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Inject Logger log;
 	@Inject Credentials credentials;
-	@Inject LoginService loginService;
 	@Inject UserService userService;
+	@Inject LoginService loginService;
 	
 	private UserEntity user;
+	private LoginEntity login;
 	
 	@PostConstruct
 	public void init(){
@@ -36,13 +38,13 @@ public class Login implements Serializable{
 	
 	public String doLogin(){
 		log.info("Ricerca per username: "+credentials.getUsername());
-		LoginEntity login= new LoginEntity();
+		
 		login=loginService.find(credentials.getUsername());
 		
 		if((login!=null) && (login.getPassword().equals(credentials.getPassword()))){
 			log.info("Utente trovato!");
 			user=userService.find(login.getUsername());
-			log.info("User trovato con login: "+credentials.getUsername());
+			log.info("User trovato con login: "+user.getUsername());
 			return "home?faces-redirect=true";
 		}
 		else{
