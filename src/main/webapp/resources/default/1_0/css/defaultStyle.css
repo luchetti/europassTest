@@ -1,21 +1,24 @@
-body {background-color: #19353a;}
+body {background-color: #404952; /*margin:0 auto*/} /*#19353a*/
 
-#page {height:680px; width:1000px; margin:0 auto}
+.main-container {background-color: #404952;}	/*#19353a*/
 
-#header-container {height:100px; background: #0055FA}
+.header-container {background-color: #0055FA}
 
-#header{background: #0055FA; width:1000px; height: 100%; margin:0}
+.messages-container {background-color: #44EE00;}
 
-#messages-container {height:50px; margin:0; display: inline-block;}
+.content-container{background: #EDEDED;min-height: 680px;}
 
-#messages {background: #44EE00; width:1000px; height: 100%; margin:0; display: inline-block;}
+.sidebar-container {background-color: #FF1100;}
 
-#content-container {height:100%; margin:0} 
+.footer-container {background-color: #0055FA;}
 
-#content {float:left; background: #EDEDED; width:700px;  height:100%; margin:0}
+.customHr{ margin: 1em 0; padding: 0; height:2px; background-color: #b39072; color:#b39072; }
 
-#sidebar {float:left; background: #FF1100; width:300px;  height:100%; margin:0}
+.loginForm p{ margin: 0; padding: 0; font-size: 2em; font-weight: 600;color:#5e0000;}
 
-#footer-container {height:100px; margin:0; clear:both; display: inline-block;}
-
-#footer {background: #0055FA; width:1000px; height:100%; margin:0 auto; display: inline-block;}
+.loginForm {background-color: #EDEDED;/*#EDEDED*/
+			border-radius: 1em;
+			border: solid 2px #b39072;
+			padding: 2em;
+			font-size: 1em;
+			}

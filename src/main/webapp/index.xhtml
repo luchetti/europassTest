@@ -5,30 +5,61 @@
 		xmlns:f="http://java.sun.com/jsf/core"
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:p="http://java.sun.com/jsf/passthrough"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:head>
+		<h:outputStylesheet library="default" name="css/defaultStyle.css" position="last"/>
+	</h:head>
 	
 	
 	<h:body>
-		<ui:composition template="/templates/commonLayout.xhtml">
-			<ui:define name="content">
-				<h:form>
-					<div>
-						<h3 style="display: none;">Ultragay, fammi sapere appena leggerai questa frase. Sgagagaga</h3>
-						<h:panelGrid columns="2">
-							<h:inputText id="username" value="#{credentials.username}" rendered="#{!login.isLoggedIn()}" />
-							<label for="username">Username</label>
-							<h:inputSecret id="password" value="#{credentials.password}" rendered="#{!login.isLoggedIn()}" />
-							<label for="username">Password</label>
-						</h:panelGrid>
-						<div>
-							<h:commandButton value="Login" action="#{login.doLogin()}" rendered="#{!login.isLoggedIn()}" />
-						</div>
-						<div>
-							<h:messages />
-						</div>
-					</div>
-				</h:form>
-			</ui:define>
-		</ui:composition>
+		<b:container id="main-container" fluid="true">
+		
+				<b:row>
+					<h1>&#160;</h1>		
+				</b:row>
+				
+				<b:row >
+					<b:column span="2" offset="5" class="loginForm">
+						<b:row>
+							<b:column span="12">
+								<p>Accedi</p>
+							</b:column>
+						</b:row>
+						<b:row>
+							<b:column span="12">
+								<hr class="customHr" />
+							</b:column>
+						</b:row>
+							
+							<h:form>							
+								
+								<b:inputText value="#{credentials.username}" rendered="#{!login.logged}" placeholder="Username" >
+									<f:facet name="prepend">
+										<b:iconAwesome name="user-circle-o" size="lg" />
+									</f:facet>
+								</b:inputText>
+								
+								<b:inputSecret value="#{credentials.password}" rendered="#{!login.logged}" placeholder="Password">
+									<f:facet name="prepend">
+										<b:iconAwesome name="key" size="lg" />
+									</f:facet>
+								</b:inputSecret>
+								
+								<b:commandButton value="Login" action="#{login.doLogin()}" rendered="#{!login.logged}" look="primary" icon="glyphicon-log-in" span="7" offset="5"/>
+						</h:form>
+						<h:messages />
+					</b:column>
+				</b:row>
+				
+				<b:row>
+					<h1>&#160;</h1>		
+				</b:row>
+				
+				<b:row>
+					<h1>&#160;</h1>		
+				</b:row>
+		</b:container>
 	</h:body>
 </html>

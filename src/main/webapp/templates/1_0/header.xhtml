@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+	
+<html lang="it" 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets">
+	<body>
+		<ui:composition>
+			<h:panelGrid columns="2">
+				<h:panelGrid columns="2">
+					<h:outputText id="name" value="#{home.currentUser.name}" rendered="#{login.logged}" />
+					<h:outputText id="surname" value="#{home.currentUser.surname}" rendered="#{login.logged}" />
+				</h:panelGrid>
+				<h:link value="Return Home Page" outcome="/secure/home.xhtml"/>
+				<h:form>
+					<h:commandButton value="Logout" action="#{login.doLogout()}" rendered="#{login.logged}"/>
+				</h:form>
+				<div style="background-color: #000000;color: white;">
+					#{login.logged}
+				</div>
+			</h:panelGrid>
+		</ui:composition>
+	</body>
+
+</html>
