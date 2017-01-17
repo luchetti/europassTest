@@ -3,13 +3,16 @@
 <html lang="it" 
 		xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:b="http://bootsfaces.net/ui">
 	<body>
 		<ui:composition>
-			<ul>
-				<li><h:link value="Upload CV"  outcome ="/secure/uploadCV/uploadStart.xhtml" /></li>
-				<li><h:link value="Insert new user" outcome="/secure/newUser/NewUserStart.xhtml"/></li>
-			</ul>
+			<b:panel look="primary" collapsible="false" title="Operazioni disponibili">
+				<b:listLinks>
+					<b:navLink value=" Upload CV"  outcome ="/secure/uploadCV/uploadStart.xhtml" iconAwesome="upload" iconAlign="left" />
+					<b:navLink value=" Insert new user" outcome="/secure/newUser/NewUserStart.xhtml" iconAwesome="user-plus" iconAlign="left" />
+				</b:listLinks>
+			</b:panel>
 		</ui:composition>
 	</body>
 

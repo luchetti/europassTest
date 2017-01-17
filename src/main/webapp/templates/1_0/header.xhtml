@@ -3,22 +3,18 @@
 <html lang="it" 
 		xmlns="http://www.w3.org/1999/xhtml"
 		xmlns:h="http://java.sun.com/jsf/html"
-		xmlns:ui="http://java.sun.com/jsf/facelets">
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:b="http://bootsfaces.net/ui">
 	<body>
 		<ui:composition>
-			<h:panelGrid columns="2">
-				<h:panelGrid columns="2">
-					<h:outputText id="name" value="#{home.currentUser.name}" rendered="#{login.logged}" />
-					<h:outputText id="surname" value="#{home.currentUser.surname}" rendered="#{login.logged}" />
-				</h:panelGrid>
-				<h:link value="Return Home Page" outcome="/secure/home.xhtml"/>
-				<h:form>
-					<h:commandButton value="Logout" action="#{login.doLogout()}" rendered="#{login.logged}"/>
-				</h:form>
-				<div style="background-color: #000000;color: white;">
-					#{login.logged}
-				</div>
-			</h:panelGrid>
+			
+			<b:navbarLinks pull="right">
+				<b:dropMenu value="Ciao, #{home.currentUser.name}">
+					<b:navLink value=" Ritorna alla Home" href="cvsm/secure/home.xhtml" iconAwesome="home" icon-align="left"/>
+					<b:navLink></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+			<b:form><b:commandButton value=" Logout" action="#{login.doLogout()}" look="primary" iconAwesome="sign-out" icon-align="left"/></b:form>
 		</ui:composition>
 	</body>
 

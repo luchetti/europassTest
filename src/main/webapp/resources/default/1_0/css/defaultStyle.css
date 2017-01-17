@@ -2,19 +2,23 @@ body {background-color: #404952; /*margin:0 auto*/} /*#19353a*/
 
 .main-container {background-color: #404952;}	/*#19353a*/
 
-.header-container {background-color: #0055FA}
+.header-container {background-color: #0055FA;}
 
 .messages-container {background-color: #44EE00;}
 
-.content-container{background: #EDEDED;min-height: 680px;}
+.content-container{background: #EDEDED; min-height: 10em;}
 
-.sidebar-container {background-color: #FF1100;}
+.sidebar-container {}
 
 .footer-container {background-color: #0055FA;}
 
 .customHr{ margin: 1em 0; padding: 0; height:2px; background-color: #b39072; color:#b39072; }
 
 .loginForm p{ margin: 0; padding: 0; font-size: 2em; font-weight: 600;color:#5e0000;}
+
+.titles{line-height:1em; }
+
+input{padding: 0.5em;}
 
 .loginForm {background-color: #EDEDED;/*#EDEDED*/
 			border-radius: 1em;

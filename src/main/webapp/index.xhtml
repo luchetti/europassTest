@@ -24,7 +24,7 @@
 					<b:column span="2" offset="5" class="loginForm">
 						<b:row>
 							<b:column span="12">
-								<p>Accedi</p>
+								<p class="titles">Accedi</p>
 							</b:column>
 						</b:row>
 						<b:row>
@@ -34,8 +34,7 @@
 						</b:row>
 							
 							<h:form>							
-								
-								<b:inputText value="#{credentials.username}" rendered="#{!login.logged}" placeholder="Username" autoFocus="true" >
+								<b:inputText value="#{credentials.username}" rendered="#{!login.isLoggedIn()}" placeholder="Username" autofocus="true">
 									<f:facet name="prepend">
 										<b:iconAwesome name="user-circle-o" size="lg" />
 									</f:facet>
