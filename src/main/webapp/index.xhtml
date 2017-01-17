@@ -40,13 +40,13 @@
 									</f:facet>
 								</b:inputText>
 								
-								<b:inputSecret value="#{credentials.password}" rendered="#{!login.logged}" placeholder="Password">
+								<b:inputSecret value="#{credentials.password}" rendered="#{!login.isLoggedIn()}" placeholder="Password">
 									<f:facet name="prepend">
 										<b:iconAwesome name="key" size="lg" />
 									</f:facet>
 								</b:inputSecret>
 								
-								<b:commandButton value="Login" action="#{login.doLogin()}" rendered="#{!login.logged}" look="primary" icon="glyphicon-log-in" span="7" offset="5"/>
+								<b:commandButton value="Login" action="#{login.doLogin()}" rendered="#{!login.isLoggedIn()}" look="primary" icon="glyphicon-log-in" span="7" offset="5"/>
 						</h:form>
 						<h:messages />
 					</b:column>
