@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+	
+<html lang="it" 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:b="http://bootsfaces.net/ui">
+	
+	<h:head>
+	</h:head>
+	<h:body>
+		<ui:composition>
+			<b:navbarLinks pull="left">
+				<b:navLink value="Home" outcome="/secure/pages/home.xhtml" iconAwesome="home" iconAlign="left" iconSize="lg"/>
+				<b:dropMenu value="Curriculum" iconAwesome="file-text" iconAlign="left" iconSize="lg" >
+					<b:navLink value="Upload CV" outcome="/secure/pages/newCurriculum.xhtml" iconAwesome="upload" iconAlign="left" iconSize="1x" />
+				</b:dropMenu>
+				<b:dropMenu value="User"  iconAwesome="users" iconAlign="left" iconSize="lg" >
+					<b:navLink value="Inserisci nuovo utente" outcome="/secure/pages/newUser.xhtml" iconAwesome="user-plus" iconAlign="left" iconSize="1x" />
+				</b:dropMenu>
+			</b:navbarLinks>
+			
+			
+			<b:navbarLinks pull="right">
+				<b:dropMenu value="Ciao, #{home.currentUser.name}" iconAwesome="user-circle" iconAlign="left" iconSize="lg">
+				<b:navLink></b:navLink>
+				</b:dropMenu>
+			</b:navbarLinks>
+		</ui:composition>
+	</h:body>
+</html>

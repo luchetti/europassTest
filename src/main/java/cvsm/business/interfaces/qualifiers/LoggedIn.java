@@ -1,4 +1,4 @@
-package cvsm.business.customQualifiers;
+package cvsm.business.interfaces.qualifiers;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

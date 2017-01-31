@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import cvsm.business.interfaces.interceptors.TraceLog;
 import cvsm.model.entities.LoginEntity;
 import cvsm.model.entities.UserEntity;
 

@@ -32,22 +32,29 @@
 								<hr class="customHr" />
 							</b:column>
 						</b:row>
-							
-							<h:form>							
-								<b:inputText value="#{credentials.username}" rendered="#{!login.isLoggedIn()}" placeholder="Username" autofocus="true">
-									<f:facet name="prepend">
-										<b:iconAwesome name="user-circle-o" size="lg" />
-									</f:facet>
-								</b:inputText>
-								
-								<b:inputSecret value="#{credentials.password}" rendered="#{!login.isLoggedIn()}" placeholder="Password">
-									<f:facet name="prepend">
-										<b:iconAwesome name="key" size="lg" />
-									</f:facet>
-								</b:inputSecret>
-								
-								<b:commandButton value="Login" action="#{login.doLogin()}" rendered="#{!login.isLoggedIn()}" look="primary" icon="glyphicon-log-in" span="7" offset="5"/>
-						</h:form>
+						<b:row>
+							<b:column span="12">
+								<h:form>
+									<b:panelGrid colSpans="12">
+										
+										<b:inputText id="username" value="#{credentials.username}" placeholder="Username" >
+										<b:focus target="username"  />
+											<f:facet name="prepend">
+												<b:iconAwesome name="user-circle-o" size="lg" />
+											</f:facet>
+										</b:inputText>
+										
+										<b:inputSecret value="#{credentials.password}" placeholder="Password">
+											<f:facet name="prepend">
+												<b:iconAwesome name="key" size="lg" />
+											</f:facet>
+										</b:inputSecret>
+										<hr class="customHr" />
+										<b:commandButton value="Login" action="#{login.doLogin()}" look="primary" icon="glyphicon-log-in" span="7" offset="5"/>
+										</b:panelGrid>
+									</h:form>
+							</b:column>
+						</b:row>
 						<h:messages />
 					</b:column>
 				</b:row>

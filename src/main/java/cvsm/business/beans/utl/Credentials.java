@@ -3,6 +3,8 @@ package cvsm.business.beans.utl;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import cvsm.business.interfaces.interceptors.TraceLog;
+
 @Named
 @RequestScoped
 public class Credentials {

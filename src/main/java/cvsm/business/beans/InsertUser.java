@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import cvsm.business.interfaces.interceptors.TraceLog;
 import cvsm.business.services.LoginService;
 import cvsm.business.services.UserService;
 import cvsm.model.entities.LoginEntity;

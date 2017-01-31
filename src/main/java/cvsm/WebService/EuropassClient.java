@@ -17,6 +17,8 @@ import javax.ws.rs.core.Response;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+import cvsm.business.interfaces.interceptors.TraceLog;
+
 @Stateless
 public class EuropassClient{
 

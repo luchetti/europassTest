@@ -9,15 +9,11 @@
 	
 	<h:body>
 		<ui:composition template="/templates/1_0Layout.xhtml">
-			<ui:define name="metadata">
-				<f:metadata>
-					<f:viewAction action="#{insertUser.startConversation()}"/>
-				</f:metadata>
-			</ui:define>
 			<ui:define name="content">
 			
 				<div>
 					<h:form>
+					<f:param name="cid" value="#{insertUser.conversation.id}"/>
 						<div>
 							<label for="username">Username</label>
 							<h:inputText id="username" value="#{insertUser.tempUsername}" />

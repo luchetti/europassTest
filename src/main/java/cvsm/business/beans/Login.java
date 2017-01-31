@@ -18,14 +18,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import cvsm.business.beans.utl.Credentials;
-import cvsm.business.customQualifiers.LoggedIn;
+import cvsm.business.interfaces.interceptors.TraceLog;
+import cvsm.business.interfaces.qualifiers.LoggedIn;
 import cvsm.business.services.UserService;
 import cvsm.model.entities.UserEntity;
 import cvsm.utils.PasswordSalter;
 
 @Named
 @SessionScoped
-
+@TraceLog
 public class Login implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -46,7 +47,7 @@ public class Login implements Serializable{
         originalURL = (String) externalContext.getRequestMap().get(RequestDispatcher.FORWARD_REQUEST_URI);
 
         if (originalURL == null) {
-            originalURL = externalContext.getRequestContextPath() + "/secure/home.xhtml";
+            originalURL = externalContext.getRequestContextPath() + "/secure/pages/home.xhtml";
         } else {
             String originalQuery = (String) externalContext.getRequestMap().get(RequestDispatcher.FORWARD_QUERY_STRING);
 
@@ -54,7 +55,6 @@ public class Login implements Serializable{
                 originalURL += "?" + originalQuery;
             }
         }
-        log.info("OriginalURL: "+originalURL);
 	}
 	
 	public void doLogin() throws IOException{
@@ -67,14 +67,16 @@ public class Login implements Serializable{
 
         try {
             request.login(credentials.getUsername(), PasswordSalter.saltPassword(credentials.getPassword(), "SHA-256"));
+            logged=true;
+
+            externalContext.redirect(originalURL);
         }
         catch (ServletException e) {
+        	doLogout();
           context.addMessage(null, new FacesMessage("Unknown login"));
         }
         
-        logged=true;
 
-        externalContext.redirect(originalURL);
 	}
 	
 	public void doLogout() throws IOException{

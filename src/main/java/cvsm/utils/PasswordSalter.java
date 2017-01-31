@@ -6,6 +6,8 @@ import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.codec.binary.Base64;
 
+import cvsm.business.interfaces.interceptors.TraceLog;
+
 public class PasswordSalter {
 
 	public static String saltPassword(String password, String encode){

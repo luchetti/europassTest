@@ -1,0 +1,48 @@
+<html lang="it" 
+		xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:p="http://java.sun.com/jsf/passthrough"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:b="http://bootsfaces.net/ui"
+		xmlns:prime="http://primefaces.org/ui">
+	<h:head>
+	</h:head>
+	<h:body>
+		<ui:composition template="/templates/1_0Layout.xhtml">
+			<ui:define name="content">
+				<b:row>
+					<b:column span="9">
+						<b:panel collapsible="false" >
+								<h:form>
+									<f:param name="cid" value="#{curriculumOperation.conversation.id}"/>
+									 <prime:wizard flowListener="#{wizardsController.flow}">
+										<prime:tab id="upload" value="Upload">
+											<prime:panel header="Carica il tuo CV">
+												<b:column col-lg="6">
+												<prime:fileUpload fileUploadListener="#{curriculumOperation.fileUpload}" mode="advanced" dragDropSupport="false" /> <!-- update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" -->
+												</b:column>
+												<b:column col-lg="3">
+													<prime:growl id="messages" showDetail="true" />	
+												</b:column>
+			 									<b:column col-lg="3">
+			 										<b:selectBooleanCheckbox value="#{curriculumOperation.useEuropass}" label="Vuoi utilizzare il servizio Europass" render-label="true" />
+			 									</b:column>
+			 								</prime:panel>
+										</prime:tab> 
+										<prime:tab id="review" value="Visualizza">
+											file caricato correttamente
+										</prime:tab>
+									</prime:wizard>
+								</h:form>
+						</b:panel>
+					</b:column>
+					<b:column span-lg="3">
+						Qui possono andarci tranquillamente dei messaggi
+					</b:column>
+					
+				</b:row>
+			</ui:define>
+		</ui:composition>
+	</h:body>
+</html>

@@ -5,43 +5,38 @@
 		xmlns:h="http://java.sun.com/jsf/html"
 		xmlns:p="http://java.sun.com/jsf/passthrough"
 		xmlns:ui="http://java.sun.com/jsf/facelets"
-		xmlns:b="http://bootsfaces.net/ui">
+		xmlns:b="http://bootsfaces.net/ui"
+		xmlns:prime="http://primefaces.org/ui">
 		
 		<ui:insert name="metadata">
-			<ui:include src="/templates/1_0/metadata.xhtml" />
+			
 		</ui:insert>
 	<h:head>
 		<h:outputStylesheet library="default" name="css/defaultStyle.css" position="last"/>
 	</h:head>
 	<h:body>
-		<b:container class="main-container" >
-			<b:navBar class="header-container" position="top" sticky="true" brand="CVSM - ">
-				<ui:insert name="header">
-					<ui:include src="/templates/1_0/header.xhtml" />
-				</ui:insert>
-			</b:navBar> 
+		<b:container class="main-container" fluid="false">
 			<b:row>
-				<h1>&#160;</h1>
+				<h2>&#160;</h2>
 			</b:row>
 			<b:row>
 				<b:column col-lg="12">
-					<b:column class="content-container" col-lg="9">
-						<ui:insert name="content">
-							<ui:include src="/templates/common/commonMain.xhtml" />
+					<b:navBar class="topMenu-container" position="top" sticky="true" inverse="true">
+						<ui:insert name="menu">
+							<ui:include src="/templates/1_0/menu.xhtml" />
 						</ui:insert>
-					</b:column>
-					<b:column class="sidebar-container" col-lg="3">
-						<ui:insert name="sidebar">
-							<ui:include src="/templates/1_0/sideBar.xhtml" />
-						</ui:insert>
-					</b:column>
+					</b:navBar>
+					
+					<b:row class="content-container" >
+						<b:column class="content" col-lg="12">
+							<ui:insert name="content">
+									
+							</ui:insert>
+						</b:column>	
+					</b:row>
 				</b:column>
+				<b:scrollUp distance="1" animation="fade" text="Up" />
 			</b:row>
-			<b:navBar class="footer-container" position="bottom" sticky="false">
-				<ui:insert name="footer">
-						<ui:include src="/templates/common/commonFooter.xhtml" />
-					</ui:insert>
-			</b:navBar>
 		</b:container>
 	</h:body>
 </html>

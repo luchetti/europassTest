@@ -160,6 +160,11 @@
     		<scope>provided</scope>
 		</dependency>
 		
+    <dependency>
+      <groupId>org.jboss.spec.javax.interceptor</groupId>
+      <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
+      <scope>provided</scope>
+    </dependency>
 		<!-- import Luca:  Apache Commons IO per toByteArray-->
 		<dependency>
 		    <groupId>commons-io</groupId>
@@ -179,6 +184,19 @@
 		    <groupId>com.mashape.unirest</groupId>
 		    <artifactId>unirest-java</artifactId>
 		    <version>1.4.9</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.bootsfaces</groupId>
+			<artifactId>bootsfaces</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.0</version>
+			<scope>compile</scope>
 		</dependency>
         <!-- Now we declare any tools needed -->
 
@@ -220,6 +238,17 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+        	<groupId>org.primefaces.themes</groupId>
+        	<artifactId>bootstrap</artifactId>
+        	<version>1.0.10</version>
+        </dependency>
+        
+        <dependency>
+    		<groupId>net.bootsfaces</groupId>
+    		<artifactId>bootsfaces</artifactId>
+    		<version>1.0.1</version>
+		</dependency>
     </dependencies>
 
     <build>
